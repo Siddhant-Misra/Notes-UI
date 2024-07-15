@@ -20,11 +20,12 @@ const App = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [noteToDelete, setNoteToDelete] = useState<Note | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch("http://localhost:5000/notes");
+        const response = await fetch("https://notes-server-qizu.onrender.com/notes");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -66,8 +67,9 @@ const App = () => {
   };
 
   const handleAddNote = async (title: string, content: string) => {
+    setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/notes", {
+      const response = await fetch("https://notes-server-qizu.onrender.com/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,12 +87,14 @@ const App = () => {
     } catch (e) {
       console.log('Error adding note:', e);
       toast.error("Failed to add note.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleUpdateNote = async (id: string, title: string, content: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/notes/${id}`, {
+      const response = await fetch(`https://notes-server-qizu.onrender.com/notes/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -119,7 +123,7 @@ const App = () => {
     if (!noteToDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/notes/${noteToDelete.id}`, {
+      const response = await fetch(`https://notes-server-qizu.onrender.com/notes/${noteToDelete.id}`, {
         method: "DELETE",
       });
 
@@ -144,15 +148,19 @@ const App = () => {
       <div className="main-content">
         <div className="content">
           <div className="controls">
-            <button className="add-note-button" onClick={openAddModal}>Add Note</button>
+            <button className="add-note-button" onClick={openAddModal} disabled={isLoading}>
+              {isLoading ? 'Adding Note...' : 'Add Note'}
+            </button>
           </div>
           <div className="notes-grid">
             {notes.map((note) => (
               <div key={note.id} className="note-item">
                 <h2>{note.title}</h2>
                 <p>{note.content}</p>
-                <button onClick={() => openEditModal(note)}>Edit</button>
-                <button onClick={() => openDeleteModal(note)}>Delete</button>
+                <div className="note-actions">
+                  <button className="edit-button" onClick={() => openEditModal(note)}>Edit</button>
+                  <button className="delete-button" onClick={() => openDeleteModal(note)}>Delete</button>
+                </div>
               </div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 /* General App Styles */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
 }
@@ -54,8 +55,11 @@ body {
   background-color: #f9f9f9;
   padding: 15px;
   border-radius: 5px;
-  width: 200px;
+  width: 30%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .note-item h2 {
@@ -67,13 +71,44 @@ body {
 .note-item p {
   font-size: 14px;
   margin: 0 0 10px 0;
+  overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex-grow: 1; /* Allow the paragraph to take up the remaining space */
+}
+
+.note-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .note-item button {
-  margin-right: 5px;
   padding: 5px 10px;
   font-size: 14px;
   cursor: pointer;
   border-radius: 50px;
   border: 1px solid;
+  transition: background-color 0.3s;
+}
+
+.note-item .edit-button {
+  background-color: darkgoldenrod;
+  border-color: darkgoldenrod;
+}
+
+.note-item .edit-button:hover {
+  background-color: yellow;
+  border-color: yellow;
+}
+
+.note-item .delete-button {
+  background-color: red;
+  border-color: red;
+}
+
+.note-item .delete-button:hover {
+  background-color: darkred;
+  border-color: darkred;
 }
