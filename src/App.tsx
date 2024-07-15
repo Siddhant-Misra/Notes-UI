@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import DeleteConfirmationModal from "./components/DeleteConfirmationModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export interface Note {
   id: string;
@@ -156,10 +158,14 @@ const App = () => {
             {notes.map((note) => (
               <div key={note.id} className="note-item">
                 <h2>{note.title}</h2>
-                <p>{note.content}</p>
+                <div dangerouslySetInnerHTML={{ __html: note.content }} /> {}
                 <div className="note-actions">
-                  <button className="edit-button" onClick={() => openEditModal(note)}>Edit</button>
-                  <button className="delete-button" onClick={() => openDeleteModal(note)}>Delete</button>
+                  <button className="edit-button" onClick={() => openEditModal(note)}>
+                    <FontAwesomeIcon icon={faPen} />
+                  </button>
+                  <button className="delete-button" onClick={() => openDeleteModal(note)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
                 </div>
               </div>
             ))}

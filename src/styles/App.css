@@ -18,7 +18,8 @@ body {
 }
 
 .main-content {
-  background-color: teal;
+  /* background-color: #00a1a1; */
+  background-color: aliceblue;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -42,6 +43,14 @@ body {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 50px;
+  background-color: steelblue;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.add-note-button:hover {
+  border-radius: 5px;
+  background-color: cadetblue;
 }
 
 .notes-grid {
@@ -52,10 +61,13 @@ body {
 }
 
 .note-item {
-  background-color: #f9f9f9;
+  /* background-color: #121212;  */
+  background-color: #00a1a1;
+  color: #fff;
   padding: 15px;
   border-radius: 5px;
-  width: 30%;
+  width: 100%;
+  max-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -75,7 +87,7 @@ body {
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  flex-grow: 1; /* Allow the paragraph to take up the remaining space */
+  flex-grow: 1;
 }
 
 .note-actions {
@@ -96,19 +108,25 @@ body {
 .note-item .edit-button {
   background-color: darkgoldenrod;
   border-color: darkgoldenrod;
+  color: aliceblue;
 }
 
 .note-item .edit-button:hover {
   background-color: yellow;
   border-color: yellow;
+  border-radius: 2px;
+  color: #000;
 }
 
 .note-item .delete-button {
-  background-color: red;
-  border-color: red;
+  background-color: darkred;
+  border-color: darkred;
+  color: aliceblue;
 }
 
 .note-item .delete-button:hover {
-  background-color: darkred;
-  border-color: darkred;
+  background-color: red;
+  border-color: red;
+  border-radius: 2px;
+  color: #000;
 }
