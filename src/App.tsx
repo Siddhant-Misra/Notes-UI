@@ -158,7 +158,7 @@ const App = () => {
             {notes.map((note) => (
               <div key={note.id} className="note-item">
                 <h2>{note.title}</h2>
-                <div dangerouslySetInnerHTML={{ __html: note.content }} /> {}
+                <p dangerouslySetInnerHTML={{ __html: note.content }} /> {/* Render content as HTML inside a p tag */}
                 <div className="note-actions">
                   <button className="edit-button" onClick={() => openEditModal(note)}>
                     <FontAwesomeIcon icon={faPen} />

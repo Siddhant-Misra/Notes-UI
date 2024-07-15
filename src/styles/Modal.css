@@ -21,11 +21,11 @@
 
 .modal-content h2 {
   margin-top: 0;
-  text-align: center; /* Center align the header */
+  text-align: center; 
 }
 
 .modal-content input {
-  width: 100%;
+  width: 95%;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -67,3 +67,37 @@
   background: #c82333;
   border-radius: 5px;
 }
+
+
+/* Media Queries for Responsiveness */
+@media (min-width: 769px) {
+
+}
+
+@media (max-width: 768px) {
+ 
+}
+
+@media (max-width: 480px) {
+.modal-content input {
+  padding: 10px 5px 10px 3px;
+  margin: 0px 0px 10px 0px;
+  overflow-x: scroll;
+  height: 10vw;
+}
+
+.modal-actions button {
+  font-size: 10px;
+}
+
+.modal-actions button {
+  padding: 10px 10px;
+  cursor: pointer;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-size: 15px;
+  border-radius: 50px;
+}
+}
+

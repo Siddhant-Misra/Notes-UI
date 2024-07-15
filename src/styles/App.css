@@ -3,45 +3,49 @@ html,
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
 }
 
 body {
   display: flex;
   flex-direction: column;
+  font-family: 'Raleway', sans-serif; 
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
+  min-height: 100vh; 
 }
 
 .main-content {
-  /* background-color: #00a1a1; */
   background-color: aliceblue;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 100%; 
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%; 
 }
 
 .controls {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  width: 100%; 
 }
 
 .add-note-button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 45px;
   border-radius: 50px;
   background-color: steelblue;
   border: 1px solid #fff;
@@ -58,16 +62,17 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  width: 100%; 
+  padding: 0 10px;
 }
 
 .note-item {
-  /* background-color: #121212;  */
   background-color: #00a1a1;
   color: #fff;
   padding: 15px;
   border-radius: 5px;
   width: 100%;
-  max-width: 300px;
+  max-width: 300px; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -78,15 +83,14 @@ body {
   font-size: 25px;
   margin: 0 0 10px 0;
   text-align: center;
+  word-wrap: break-word; 
 }
 
 .note-item p {
   font-size: 14px;
   margin: 0 0 10px 0;
-  overflow: hidden;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  word-wrap: break-word; 
+  white-space: pre-wrap;
   flex-grow: 1;
 }
 
@@ -129,4 +133,92 @@ body {
   border-color: red;
   border-radius: 2px;
   color: #000;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  flex-shrink: 0;
+  width: 100%; 
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 769px) {
+  .notes-grid {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  .notes-grid {
+    width: 90%; /* Adjust width for medium screens */
+  }
+
+  /* .note-item {
+    max-width: 100%;
+  } */
+
+  .add-note-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .note-item h2 {
+    font-size: 20px;
+  }
+
+  .note-item p {
+    font-size: 12px;
+  }
+
+  .note-item button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px;
+  }
+
+  .notes-grid {
+    width: 100%; /* Full width for small screens */
+  }
+
+  .add-note-button {
+    font-size: 35px;
+    padding: 6px 12px;
+    margin-top: 10px;
+  }
+
+  .note-item h2 {
+    font-size: 18px;
+  }
+
+  .note-item p {
+    font-size: 10px;
+  }
+
+  .note-item button {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
 }
