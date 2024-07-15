@@ -1,0 +1,79 @@
+/* General App Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  background-color: teal;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.add-note-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+.notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.note-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.note-item h2 {
+  font-size: 25px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.note-item p {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.note-item button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50px;
+  border: 1px solid;
+}
